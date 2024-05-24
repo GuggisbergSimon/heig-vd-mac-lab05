@@ -3,7 +3,7 @@
     {
       "text": "%md\n# Méthode d'accès aux données\n## Labo: Spark\n\nAuteur: Christopher MEIER\n\nPrintemps 2024",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:08+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -37,19 +37,17 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636794_1673279889",
+      "jobName": "paragraph_1716538085685_1113324013",
       "id": "20240513-092648_2102106332",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
       "focus": true,
-      "$$hashKey": "object:183",
-      "dateFinished": "2024-05-21T13:39:08+0000",
-      "dateStarted": "2024-05-21T13:39:08+0000"
+      "$$hashKey": "object:183"
     },
     {
       "text": "%md\n### Spark initialisation\n\nNothing to modify in this section.\n\nHere we create and configure the SparkSession and SparkContext.",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:08+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -83,18 +81,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_2128456846",
+      "jobName": "paragraph_1716538085686_1499494468",
       "id": "20240513-092648_713056072",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:184",
-      "dateFinished": "2024-05-21T13:39:08+0000",
-      "dateStarted": "2024-05-21T13:39:08+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:184"
     },
     {
       "text": "%spark\n// The spark session is automatically created by Zeppelin.\n// We import some often used functions\nimport org.apache.spark.sql._\nimport org.apache.spark.rdd._",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:29+0000",
+      "dateUpdated": "2024-05-24T08:22:48+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -128,18 +124,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_1866006726",
+      "jobName": "paragraph_1716538085686_406370195",
       "id": "20240513-092648_753540709",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:185",
-      "dateFinished": "2024-05-21T13:39:29+0000",
-      "dateStarted": "2024-05-21T13:39:29+0000"
+      "dateFinished": "2024-05-24T08:22:48+0000",
+      "dateStarted": "2024-05-24T08:22:48+0000"
     },
     {
       "text": "%md\n### Dataset loading\n\nNothing to modify in this section.",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:29+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -172,18 +168,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_518299043",
+      "jobName": "paragraph_1716538085686_1881928164",
       "id": "20240513-092648_1088362509",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:186",
-      "dateFinished": "2024-05-21T13:39:29+0000",
-      "dateStarted": "2024-05-21T13:39:29+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:186"
     },
     {
       "text": "%spark\ncase class Movie(id: Int, title: String, genres: Seq[String],\n                 description: String, director: String, actors: Seq[String],\n                 year: Int, rating: Float, votes: Int)",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:29+0000",
+      "dateUpdated": "2024-05-24T08:22:55+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -216,18 +210,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_2125559482",
+      "jobName": "paragraph_1716538085686_1215642871",
       "id": "20240513-092648_1619176723",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:187",
-      "dateFinished": "2024-05-21T13:39:29+0000",
-      "dateStarted": "2024-05-21T13:39:29+0000"
+      "dateFinished": "2024-05-24T08:22:55+0000",
+      "dateStarted": "2024-05-24T08:22:55+0000"
     },
     {
       "text": "%spark\ndef parseRow(row: Row): Movie = {\n    val id = row.getInt(0)\n    val title = row.getString(1)\n    val genres = row.getString(2).split(\",\").toList\n    val description = row.getString(3)\n    val director = row.getString(4)\n    val actors = row.getString(5).split(\",\").toList\n    val year = row.getInt(6)\n    val rating = row.getDouble(8).toFloat\n    val votes = row.getInt(9)\n\n    Movie(id, title, genres, description, director, actors, year, rating, votes)\n}",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:29+0000",
+      "dateUpdated": "2024-05-24T08:23:00+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -260,18 +254,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_1365713731",
+      "jobName": "paragraph_1716538085686_629626227",
       "id": "20240513-092648_876154503",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:188",
-      "dateFinished": "2024-05-21T13:39:29+0000",
-      "dateStarted": "2024-05-21T13:39:29+0000"
+      "dateFinished": "2024-05-24T08:23:00+0000",
+      "dateStarted": "2024-05-24T08:23:00+0000"
     },
     {
       "text": "%spark\nval filename = \"/data/IMDB-Movie-Data.csv\"\nval moviesDF = spark.read.format(\"csv\")\n    .option(\"sep\", \",\")\n    .option(\"inferSchema\", \"true\")\n    .option(\"header\", \"true\")\n    .load(filename)\nval rddMovies = moviesDF.rdd.map(parseRow)",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:29+0000",
+      "dateUpdated": "2024-05-24T08:24:41+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -297,7 +291,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "val \u001b[1m\u001b[34mfilename\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = /data/IMDB-Movie-Data.csv\nval \u001b[1m\u001b[34mmoviesDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Rank: int, Title: string ... 10 more fields]\nval \u001b[1m\u001b[34mrddMovies\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[Movie]\u001b[0m = MapPartitionsRDD[297] at map at <console>:8\n"
+            "data": "val \u001b[1m\u001b[34mfilename\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = /data/IMDB-Movie-Data.csv\nval \u001b[1m\u001b[34mmoviesDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Rank: int, Title: string ... 10 more fields]\nval \u001b[1m\u001b[34mrddMovies\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[Movie]\u001b[0m = MapPartitionsRDD[15] at map at <console>:8\n"
           }
         ]
       },
@@ -310,30 +304,30 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://babf1896483b:4040/jobs/job?id=64",
-              "$$hashKey": "object:3246"
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=0",
+              "$$hashKey": "object:2271"
             },
             {
-              "jobUrl": "http://babf1896483b:4040/jobs/job?id=65",
-              "$$hashKey": "object:3247"
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=1",
+              "$$hashKey": "object:2272"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_298908603",
+      "jobName": "paragraph_1716538085686_793970146",
       "id": "20240513-092648_218362564",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:189",
-      "dateFinished": "2024-05-21T13:39:30+0000",
-      "dateStarted": "2024-05-21T13:39:29+0000"
+      "dateFinished": "2024-05-24T08:24:43+0000",
+      "dateStarted": "2024-05-24T08:24:41+0000"
     },
     {
       "text": "%spark\n// Print the title of the first 10 movies to see if they were correctly added.\nrddMovies.take(10).map(m => m.title).foreach(println)",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:30+0000",
+      "dateUpdated": "2024-05-24T08:24:48+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -372,26 +366,26 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://babf1896483b:4040/jobs/job?id=66",
-              "$$hashKey": "object:3285"
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=2",
+              "$$hashKey": "object:2318"
             }
           ],
           "interpreterSettingId": "spark"
         }
       },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_710684605",
+      "jobName": "paragraph_1716538085686_1156798305",
       "id": "20240513-092648_2138868674",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:190",
-      "dateFinished": "2024-05-21T13:39:31+0000",
-      "dateStarted": "2024-05-21T13:39:30+0000"
+      "dateFinished": "2024-05-24T08:24:48+0000",
+      "dateStarted": "2024-05-24T08:24:48+0000"
     },
     {
       "text": "%md\n### Part 1 - Playing with the movies using RDD functions\n\nThe goal of this part is to play (i.e. query, filter and transform the data) with the movies.",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:31+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -424,18 +418,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636795_549982046",
+      "jobName": "paragraph_1716538085686_323732278",
       "id": "20240513-092648_182672139",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:191",
-      "dateFinished": "2024-05-21T13:39:31+0000",
-      "dateStarted": "2024-05-21T13:39:31+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:191"
     },
     {
       "text": "%md\n#### Ex1 - Print the movies whose title contains \"City\" \n\nGoal: \n\n* use `map()` and `filter()` methods to get the title of the movies that contains \"City\" in their title\n \nOutput example:\n\n```plain\nCity of Tiny Lights\nThe Mortal Instruments: City of Bones\n```\n\nSteps:\n\n* Use `filter()` to only keep the movies that contains \"City\" in their title\n* Use `map()` to retrieve the titles of these filtered movies\n* Use `foreach()` to pretty print the results",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:31+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -468,18 +460,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_1691792551",
+      "jobName": "paragraph_1716538085686_1457330134",
       "id": "20240513-092648_143829024",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:192",
-      "dateFinished": "2024-05-21T13:39:31+0000",
-      "dateStarted": "2024-05-21T13:39:31+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:192"
     },
     {
-      "text": "%spark\n// TODO students",
+      "text": "%spark\nrddMovies.filter(m => m.title.contains(\"City\")).map(m => m.title).collect().foreach(println)\n",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:31+0000",
+      "dateUpdated": "2024-05-24T08:42:20+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -501,24 +491,43 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
-        "msg": []
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "The Lost City of Z\nSin City: A Dame to Kill For\nCity of Tiny Lights\nThe Mortal Instruments: City of Bones\nSex and the City\nSex and the City 2\n"
+          }
+        ]
       },
       "apps": [],
-      "runtimeInfos": {},
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=9",
+              "$$hashKey": "object:2899"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_543931431",
+      "jobName": "paragraph_1716538085687_1934556890",
       "id": "20240513-092648_1913578715",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "ERROR",
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "FINISHED",
       "$$hashKey": "object:193",
-      "dateFinished": "2024-05-21T13:39:31+0000",
-      "dateStarted": "2024-05-21T13:39:31+0000"
+      "dateFinished": "2024-05-24T08:42:20+0000",
+      "dateStarted": "2024-05-24T08:42:20+0000"
     },
     {
       "text": "%md\n#### Ex2 - Print the title of the movies rated between `rateMin` and `rateMax`. Take the 10 best ratings.\n\nGoal:\n    \n* Take the titles of the movies that were rated between `rateMin` and `rateMax` (excluding `rateMin` and including`rateMax`).\n* This list is sorted by rating DESC\n    \nOutput example:\n\n```plain\n...\n3.7 - The Last Face\n3.5 - Wrecker\n...\n```\n    \nSteps:\n\n* Use `filter()` to only keep the movies released between `rateMin` and `rateMax`\n* Sort the filtered movies by decreasing rating\n* Use `map()` to keep only the relevant attributes (i.e. rating and title)\n* Use `foreach()` to pretty print the results",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:49+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -551,18 +560,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_1382081563",
+      "jobName": "paragraph_1716538085687_1088704228",
       "id": "20240513-092648_847272060",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:194",
-      "dateFinished": "2024-05-21T13:37:49+0000",
-      "dateStarted": "2024-05-21T13:37:49+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:194"
     },
     {
-      "text": "%spark\nval rateMin = 3\nval rateMax = 4\n// TODO student",
+      "text": "%spark\nval rateMin = 3\nval rateMax = 4\nval movieRatingsAndTitles = rddMovies.filter(m => m.rating > rateMin && m.rating <= rateMax).sortBy(m => -m.rating).map(m => (m.rating, m.title)).collect()\nmovieRatingsAndTitles.foreach { case (rating, title) =>\n  println(s\"$rating - $title\")\n}\n",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:42+0000",
+      "dateUpdated": "2024-05-24T09:07:21+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -588,25 +595,39 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "val \u001b[1m\u001b[34mrateMin\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 3\nval \u001b[1m\u001b[34mrateMax\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 4\n"
+            "data": "4.0 - 2307: Winter's Dream\n3.9 - The Disappointments Room\n3.9 - The Black Room\n3.9 - Birth of the Dragon\n3.7 - The Last Face\n3.7 - Satanic\n3.5 - The Intent\n3.5 - Wrecker\n3.2 - Tall Men\nval \u001b[1m\u001b[34mrateMin\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 3\nval \u001b[1m\u001b[34mrateMax\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 4\nval \u001b[1m\u001b[34mmovieRatingsAndTitles\u001b[0m: \u001b[1m\u001b[32mArray[(Float, String)]\u001b[0m = Array((4.0,2307: Winter's Dream), (3.9,The Disappointments Room), (3.9,The Black Room), (3.9,Birth of the Dragon), (3.7,The Last Face), (3.7,Satanic), (3.5,The Intent), (3.5,Wrecker), (3.2,Tall Men))\n"
           }
         ]
       },
       "apps": [],
-      "runtimeInfos": {},
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=14",
+              "$$hashKey": "object:3244"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_1345416127",
+      "jobName": "paragraph_1716538085687_2039990604",
       "id": "20240513-092648_415273231",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:195",
-      "dateFinished": "2024-05-21T13:39:42+0000",
-      "dateStarted": "2024-05-21T13:39:42+0000"
+      "dateFinished": "2024-05-24T09:07:21+0000",
+      "dateStarted": "2024-05-24T09:07:21+0000"
     },
     {
       "text": "%md\n#### Ex3 - Print the 10 top genres\n\nGoals:\n\n* Print the list of the genres that appears the most\n* Use `flatMap()`\n\nOutput example:\n\n```plain\nDrama (513)\nAction (303)\nComedy (279)\nAdventure (259)\n```\n\nTheory:\n\nWhen an operation is giving you a sequence of sequences like:\n\n```scala\nArray(\"hello\", \"world\").map(word => word.split(\"\"))\nres91: Array[Array[String]] = Array(Array(h, e, l, l, o), Array(w, o, r, l, d))\n```\n\nYou may want to flatten this to only have a single list like:\n```scala\nArray(\"hello\", \"world\").map(_.split(\"\")).flatten\nres93: Array[String] = Array(h, e, l, l, o, w, o, r, l, d)\n```\n\nYou can achieve the same result (i.e. `map` + `flatten`) using `flatMap`:\n```scala\nArray(\"hello\", \"world\").flatMap(_.split(\"\"))\nres95: Array[String] = Array(h, e, l, l, o, w, o, r, l, d)\n```\n\nWe are going to apply this same technique with the `genres` member.\n\nSteps:\n\n* Use `flatMap()` to get the list with all the genres\n* Make sure to remove trailling whitespaces\n* Count the genres\n* Sort them by decreasing order\n* Show the top 10 genres",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:50+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -639,18 +660,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_1134721265",
+      "jobName": "paragraph_1716538085687_809272930",
       "id": "20240513-092648_1323552940",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:196",
-      "dateFinished": "2024-05-21T13:37:50+0000",
-      "dateStarted": "2024-05-21T13:37:50+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:196"
     },
     {
-      "text": "%spark\n// TODO student",
+      "text": "%spark\nval top10Genres = rddMovies.flatMap(m => m.genres).map(_.trim).map((_, 1)).reduceByKey(_ + _).sortBy({ case (_, count) => count }, ascending = false).take(10)\ntop10Genres.foreach { case (genre, count) =>\n  println(s\"$genre ($count)\")\n}",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:46+0000",
+      "dateUpdated": "2024-05-24T09:00:46+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -672,24 +691,43 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
-        "msg": []
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Drama (513)\nAction (303)\nComedy (279)\nAdventure (259)\nThriller (195)\nCrime (150)\nRomance (141)\nSci-Fi (120)\nHorror (119)\nMystery (106)\nval \u001b[1m\u001b[34mtop10Genres\u001b[0m: \u001b[1m\u001b[32mArray[(String, Int)]\u001b[0m = Array((Drama,513), (Action,303), (Comedy,279), (Adventure,259), (Thriller,195), (Crime,150), (Romance,141), (Sci-Fi,120), (Horror,119), (Mystery,106))\n"
+          }
+        ]
       },
       "apps": [],
-      "runtimeInfos": {},
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=12",
+              "$$hashKey": "object:3127"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_757579013",
+      "jobName": "paragraph_1716538085687_1915753497",
       "id": "20240513-092648_877853710",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "ERROR",
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "FINISHED",
       "$$hashKey": "object:197",
-      "dateFinished": "2024-05-21T13:39:46+0000",
-      "dateStarted": "2024-05-21T13:39:46+0000"
+      "dateFinished": "2024-05-24T09:00:47+0000",
+      "dateStarted": "2024-05-24T09:00:47+0000"
     },
     {
       "text": "%md\n#### Ex4 - Print the average number of votes per year, order by descreasing number of votes\n\nGoal:\n\n* Print the average votes per year\n* This output is sorted by descreasing votes\n\nOutput example:\n\n```plain\n...\nyear: 2008 average votes: 275505.3846153846\nyear: 2009 average votes: 255780.64705882352\nyear: 2010 average votes: 252782.31666666668\n...\n```\n\nTheory:\n\nWe are going to use `reduceByKey()` which has the following signature `reduceByKey(func: (V, V) => V): RDD[(K, V)]`. \n\n`reduceByKey()` works on a RDD like `RDD[(K,V)]` (i.e. sort of \"list of key/values pairs\"). \n\n`reduceByKey()` takes a function that, from two elements, returns one i.e. the `func: (V, V) => V` in the signature.\nThe difference with `reduce()` is that `reduceByKey()` uses two elements sharing the same key.\n\nFor example (pseudo code):\n\n```plain\n year, count\n(2010, 2)\n(2011, 3)\n(2011, 4)\n(2010, 8)\n// use reduceByKey((count1, count2) => count1+count2)\n> (2010, 10)\n> (2011, 7)\n```\n\nNote: here `count` is just an Int but it can be anything e.g. `Movie`\n\nSteps:\n\n* To compute the average we need the **total sum** of votes per year and the **count** of all the movies per year\n* Use `map()` to create an RDD made of `(year, (votes, 1))`. Like a word count we use the `1` to be able to count the number of movies per year\n* Use `reduceByKey()` to sum the votes and to count the number of movies per year. The output should look like: `(year, (totalVotes, moviePerYearCount))`\n* Find a way to compute the average using the result from the last operation\n* Sort by number of votes decreasing",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:50+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -722,18 +760,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636796_44944771",
+      "jobName": "paragraph_1716538085687_1725738211",
       "id": "20240513-092648_1078439886",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:198",
-      "dateFinished": "2024-05-21T13:37:50+0000",
-      "dateStarted": "2024-05-21T13:37:50+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:198"
     },
     {
-      "text": "%spark\n// TODO student",
+      "text": "%spark\nval votesPerYear = rddMovies.map(m => (m.year, (m.votes, 1)))\ndef sumCounts(a: (Int, Int), b: (Int, Int)): (Int, Int) = {\n  val (votes1, count1) = a\n  val (votes2, count2) = b\n  (votes1 + votes2, count1 + count2)\n}\n\nval totalVotesAndCountPerYear = votesPerYear.reduceByKey(sumCounts)\nval averageVotesPerYear = totalVotesAndCountPerYear.map { case (year, (totalVotes, movieCount)) =>\n  (year, totalVotes.toDouble / movieCount)\n}\n\nval sortedAverageVotesPerYear = averageVotesPerYear.sortBy(_._2, ascending = false)\nsortedAverageVotesPerYear.collect().foreach { case (year, avgVotes) =>\n  println(f\"year: $year average votes: $avgVotes%.10f\")\n}\n",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:39:49+0000",
+      "dateUpdated": "2024-05-24T09:07:28+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -755,24 +791,43 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
-        "msg": []
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "year: 2012 average votes: 285226.0937500000\nyear: 2008 average votes: 275505.3846153846\nyear: 2006 average votes: 269289.9545454545\nyear: 2009 average votes: 255780.6470588235\nyear: 2010 average votes: 252782.3166666667\nyear: 2007 average votes: 244331.0377358491\nyear: 2011 average votes: 240790.3015873016\nyear: 2013 average votes: 219049.6483516484\nyear: 2014 average votes: 203930.2244897959\nyear: 2015 average votes: 115726.2204724409\nyear: 2016 average votes: 48591.7542087542\nval \u001b[1m\u001b[34mvotesPerYear\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(Int, (Int, Int))]\u001b[0m = MapPartitionsRDD[58] at map at <console>:2\ndef sumCounts(a: (Int, Int), b: (Int, Int)): \u001b[1m\u001b[32m(Int, Int)\u001b[0m\nval \u001b[1m\u001b[34mtotalVotesAndCountPerYear\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(Int, (Int, Int))]\u001b[0m = ShuffledRDD[59] at reduceByKey at <console>:9\nval \u001b[1m\u001b[34maverageVotesPerYear\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(Int, Double)]\u001b[0m = MapPartitionsRDD[60] at map at <console>:10\nval \u001b[1m\u001b[34msortedAverageVotesPerYear\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(Int, Double)]\u001b[0m = MapPartitionsRDD[63] at sortBy at <console>:14\n"
+          }
+        ]
       },
       "apps": [],
-      "runtimeInfos": {},
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=15",
+              "$$hashKey": "object:3278"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_868442753",
+      "jobName": "paragraph_1716538085687_1716140272",
       "id": "20240513-092648_1308721736",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "ERROR",
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "FINISHED",
       "$$hashKey": "object:199",
-      "dateFinished": "2024-05-21T13:39:49+0000",
-      "dateStarted": "2024-05-21T13:39:49+0000"
+      "dateFinished": "2024-05-24T09:07:28+0000",
+      "dateStarted": "2024-05-24T09:07:28+0000"
     },
     {
       "text": "%md\n### Part 2 - Create a basic Inverted Index\n\nThe goal of this part is to show you how to create an inverted index that indexes words from all the movies' description.",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:50+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -805,18 +860,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_1538044009",
+      "jobName": "paragraph_1716538085687_193549036",
       "id": "20240513-092648_362503434",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:200",
-      "dateFinished": "2024-05-21T13:37:50+0000",
-      "dateStarted": "2024-05-21T13:37:50+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:200"
     },
     {
       "text": "%md\nGoal:\n\nUsing `rddMovies` create an inverted that use the movies' description:\n\n```plain\nMovie(1,Guardians of the Galaxy,List(Action, Adventure, Sci-Fi),A group of intergalactic [...] of the universe.,James Gunn,List(Chris Pratt, Vin Diesel, Bradley Cooper, Zoe Saldana),2014,8.1,757074.0)\nMovie(2,Prometheus,List(Adventure, Mystery, Sci-Fi),Following clues to the origin[...] not alone.,Ridley Scott,List(Noomi Rapace, Logan Marshall-Green, Michael Fassbender, Charlize Theron),2012,7.0,485820.0)\nMovie(3,Split,List(Horror, Thriller),Three girls are kidnapped [...] a frightful new 24th.,M. Night Shyamalan,List(James McAvoy, Anya Taylor-Joy, Haley Lu Richardson, Jessica Sula),2016,7.3,157606.0)\n...\n```\n\nand extract them to produce an inverted index like:\n\n```plain\n\"reunion\" -> (640, 697)\n\"runner\" -> (338)\n\"vietnam\" -> (797, 947, 983)\n...\n```\n\nSteps\n\n* Tokenize description i.e. produce an RDD like (movId, words)\n* Normalize words e.g. toLowercase, trimming,..\n* Remove stopwords (ignored here)\n* Apply stemming (ignored here)\n* Group by document id",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:50+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -849,18 +902,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_1720307860",
+      "jobName": "paragraph_1716538085687_1716399663",
       "id": "20240513-092648_1212054958",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:201",
-      "dateFinished": "2024-05-21T13:37:50+0000",
-      "dateStarted": "2024-05-21T13:37:50+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:201"
     },
     {
-      "text": "%spark\n/**\n* Goal: create an inverted index that allows searching a word\n* in the movies description.\n* Features:\n* - case insensitive\n*\n*/\n// TODO student\n// In this first function we are going to tokenize and order the descriptions of the movies, then return these data. We are not going to apply any search right now.\ndef createInvertedIndex(movies: RDD[Movie]): RDD[(String, Iterable[Int])] = {\n    // Define helper functions directly inside this function. In scala you can declare inner functions\n    // and use them only inside the function they were declared. Useful to encapsulate/restrict \n    // their use outside this function.\n    \n    // Split the given string into an array of words (without any formatting), then return it.\n    def tokenizeDescription(description: String): Seq[String] = {\n        // TODO student\n        ???\n    }\n    \n    // Remove the blank spaces (trim) in the given word, transform it in lowercase, then return it.\n    def normalizeWord(word: String): String = {\n        // TODO student\n        ???\n    }\n    \n    // For the sake of simplicity let's ignore the implementation (in a real case we would return true if w is a stopword, otherwise false).\n    // TODO student nothing here but still call this function in your invertedIndex creation process.\n    def isStopWord(w: String): Boolean = {\n        false\n    }\n    \n    // For the sake of simplicity let's ignore the implementation (in a real case we would apply stemming to w and return the result, e.g. w=automation -> w=automat).\n    // TODO student nothing here but still call this function in your invertedIndex creation process.\n    def applyStemming(w: String): String = {\n        w\n    }\n    \n    // TODO student\n    // Here we are going to work on the movies RDD, by tokenizing and normalizing the description of every movie, then by building a key-value object that contains the tokens as keys, and the IDs of the movies as values\n    // (see the example on 4).\n    // The goal here is to do everything by chaining the possible transformations and actions of Spark.\n    // Possible steps:\n    //   1) What we first want to do here is applying the 4 previous methods on any movie's description. Be aware of the fact that we also want to keep the IDs of the movies.\n    //   2) For each tokenized word, create a tuple as (word, id), where id is the current movie id\n    //        [\n    //          (\"toto\", 120), (\"mange\", 120), (\"des\", 120), (\"pommes\", 120),\n    //          (\"toto\", 121), (\"lance\", 121), (\"des\", 121), (\"photocopies\", 121)\n    //        ]\n    //      Hint: you can use a `map` function inside another `map` function.\n    //   3) We finally need to find a way to remove duplicated keys and thus only having one entry per key, with all the linked IDs as values. For example:\n    //        [\n    //          (\"toto\", [120, 121]),\n    //          (\"mange\", [120]),\n    //          ...\n    //        ]\n    val invertedIndex = ???\n\n    // Return the new-built inverted index.\n    invertedIndex\n}",
+      "text": "%spark\n/**\n* Goal: create an inverted index that allows searching a word\n* in the movies description.\n* Features:\n* - case insensitive\n*\n*/\n\n// In this first function we are going to tokenize and order the descriptions of the movies, then return these data. We are not going to apply any search right now.\ndef createInvertedIndex(movies: RDD[Movie]): RDD[(String, Iterable[Int])] = {\n    // Define helper functions directly inside this function. In scala you can declare inner functions\n    // and use them only inside the function they were declared. Useful to encapsulate/restrict \n    // their use outside this function.\n    \n    // Split the given string into an array of words (without any formatting), then return it.\n    def tokenizeDescription(description: String): Seq[String] = {\n        description.split(\"\\\\W+\").filter(_.nonEmpty)\n    }\n    \n    // Remove the blank spaces (trim) in the given word, transform it in lowercase, then return it.\n    def normalizeWord(word: String): String = {\n        word.toLowerCase()\n    }\n    \n    // For the sake of simplicity let's ignore the implementation (in a real case we would return true if w is a stopword, otherwise false).\n    def isStopWord(w: String): Boolean = {\n        false\n    }\n    \n    // For the sake of simplicity let's ignore the implementation (in a real case we would apply stemming to w and return the result, e.g. w=automation -> w=automat).\n    def applyStemming(w: String): String = {\n        w\n    }\n    \n    // Tokenize and normalize each movie's description, then create key-value pairs (word, movie ID)\n    val tokenizedMovies = movies.flatMap(movie => {\n        val movieId = movie.id\n        val words = tokenizeDescription(movie.description)\n        words.map(word => (normalizeWord(word), movieId))\n    })\n    \n    // TODO\n    // Here we are going to work on the movies RDD, by tokenizing and normalizing the description of every movie, then by building a key-value object that contains the tokens as keys, and the IDs of the movies as values\n    // (see the example on 4).\n    // The goal here is to do everything by chaining the possible transformations and actions of Spark.\n    // Possible steps:\n    //   1) What we first want to do here is applying the 4 previous methods on any movie's description. Be aware of the fact that we also want to keep the IDs of the movies.\n    //   2) For each tokenized word, create a tuple as (word, id), where id is the current movie id\n    //        [\n    //          (\"toto\", 120), (\"mange\", 120), (\"des\", 120), (\"pommes\", 120),\n    //          (\"toto\", 121), (\"lance\", 121), (\"des\", 121), (\"photocopies\", 121)\n    //        ]\n    //      Hint: you can use a `map` function inside another `map` function.\n    //   3) We finally need to find a way to remove duplicated keys and thus only having one entry per key, with all the linked IDs as values. For example:\n    //        [\n    //          (\"toto\", [120, 121]),\n    //          (\"mange\", [120]),\n    //          ...\n    //        ]\n    val invertedIndex = tokenizedMovies.groupByKey().mapValues(_.toIterable)\n\n    // Return the new-built inverted index.\n    invertedIndex\n}",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:40:05+0000",
+      "dateUpdated": "2024-05-24T09:19:57+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -886,25 +937,25 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "def createInvertedIndex(movies: org.apache.spark.rdd.RDD[Movie]): \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Iterable[Int])]\u001b[0m\n"
+            "data": "\u001b[33mwarning: \u001b[0m1 deprecation (since 2.13.0)\n\u001b[33mwarning: \u001b[0m1 deprecation (since 2.13.7)\n\u001b[33mwarning: \u001b[0m2 deprecations in total; for details, enable `:setting -deprecation` or `:replay -deprecation`\ndef createInvertedIndex(movies: org.apache.spark.rdd.RDD[Movie]): \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Iterable[Int])]\u001b[0m\n"
           }
         ]
       },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_1891513581",
+      "jobName": "paragraph_1716538085687_279227174",
       "id": "20240513-092648_1408148244",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:202",
-      "dateFinished": "2024-05-21T13:40:05+0000",
-      "dateStarted": "2024-05-21T13:40:05+0000"
+      "dateFinished": "2024-05-24T09:19:57+0000",
+      "dateStarted": "2024-05-24T09:19:57+0000"
     },
     {
       "text": "%md\nNow we would like to use our inverted index to display the top N most used words in the descriptions of movies.",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:51+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -937,18 +988,16 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_590422242",
+      "jobName": "paragraph_1716538085687_1510738706",
       "id": "20240513-092648_1571732340",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "FINISHED",
-      "$$hashKey": "object:203",
-      "dateFinished": "2024-05-21T13:37:51+0000",
-      "dateStarted": "2024-05-21T13:37:51+0000"
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:203"
     },
     {
-      "text": "%spark\n// TODO student\n// Here we are going to operate the analytic and display its result on a given inverted index (that will be obtained from the previous function).\ndef topN(invertedIndex: RDD[(String, Iterable[Int])], N: Int): Unit = {\n  // TODO student\n  // We are going to work on the given invertedIndex array to do our analytic:\n  //   1) Find a way to get the number of movie in which a word appears.\n  //   2) Keep only the top N words and their occurence.\n  val topWords: Array[(String, Int)] = ???\n  \n  // Print the words and the number of descriptions in which they appear.\n  println(\"Top '\" + N + \"' most used words\")\n  topWords.foreach(println)\n}",
+      "text": "%spark\n// Here we are going to operate the analytic and display its result on a given inverted index (that will be obtained from the previous function).\ndef topN(invertedIndex: RDD[(String, Iterable[Int])], N: Int): Unit = {\n    \n  val wordCounts = invertedIndex.mapValues(_.size)\n  \n  val sortedWordCounts = wordCounts.sortBy(-_._2)\n  \n  // We are going to work on the given invertedIndex array to do our analytic:\n  //   1) Find a way to get the number of movie in which a word appears.\n  //   2) Keep only the top N words and their occurence.\n  val topWords: Array[(String, Int)] = sortedWordCounts.take(N)\n  \n  // Print the words and the number of descriptions in which they appear.\n  println(\"Top '\" + N + \"' most used words\")\n  topWords.foreach(println)\n}",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:40:08+0000",
+      "dateUpdated": "2024-05-24T09:21:23+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -981,18 +1030,18 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_527525931",
+      "jobName": "paragraph_1716538085687_1139291880",
       "id": "20240513-092648_800469110",
-      "dateCreated": "2024-05-21T13:37:16+0000",
+      "dateCreated": "2024-05-24T08:08:05+0000",
       "status": "FINISHED",
       "$$hashKey": "object:204",
-      "dateFinished": "2024-05-21T13:40:09+0000",
-      "dateStarted": "2024-05-21T13:40:08+0000"
+      "dateFinished": "2024-05-24T09:21:23+0000",
+      "dateStarted": "2024-05-24T09:21:23+0000"
     },
     {
       "text": "%spark\n// Code used to test your implementation.\n// Create the inverted index of the movies.\nval invertedIndex = createInvertedIndex(rddMovies)\n\n// Show how the inverted index looks like.\ninvertedIndex.take(3).foreach(x => println(x._1 + \": \" + x._2.mkString(\", \")))\n\n// Show the top 10 most used words.\ntopN(invertedIndex, 10)",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:40:12+0000",
+      "dateUpdated": "2024-05-24T09:21:37+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -1014,29 +1063,47 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "scala.NotImplementedError: an implementation is missing\n  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:344)\n  at createInvertedIndex(<console>:58)\n  ... 38 elided\n"
+            "data": "divorcee: 63\nreunion: 640, 697\nconfidants: 785\nTop '10' most used words\n(a,1640)\n(the,1364)\n(to,938)\n(of,814)\n(and,721)\n(in,580)\n(his,487)\n(an,304)\n(is,296)\n(with,274)\nval \u001b[1m\u001b[34minvertedIndex\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Iterable[Int])]\u001b[0m = MapPartitionsRDD[66] at mapValues at <console>:61\n"
           }
         ]
       },
       "apps": [],
-      "runtimeInfos": {},
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=16",
+              "$$hashKey": "object:3407"
+            },
+            {
+              "jobUrl": "http://47152b476fc3:4040/jobs/job?id=17",
+              "$$hashKey": "object:3408"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636797_1479214559",
+      "jobName": "paragraph_1716538085687_766937402",
       "id": "20240513-092648_1232697535",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "ERROR",
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "FINISHED",
       "$$hashKey": "object:205",
-      "dateFinished": "2024-05-21T13:40:12+0000",
-      "dateStarted": "2024-05-21T13:40:12+0000"
+      "dateFinished": "2024-05-24T09:21:37+0000",
+      "dateStarted": "2024-05-24T09:21:37+0000"
     },
     {
       "text": "%spark\n",
       "user": "anonymous",
-      "dateUpdated": "2024-05-21T13:37:51+0000",
+      "dateUpdated": "2024-05-24T08:08:05+0000",
       "progress": 0,
       "config": {
         "lineNumbers": true,
@@ -1056,36 +1123,32 @@
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1716298636798_565451276",
-      "id": "paragraph_1716290266344_470791481",
-      "dateCreated": "2024-05-21T13:37:16+0000",
-      "status": "ERROR",
-      "$$hashKey": "object:206",
-      "dateFinished": "2024-05-21T13:37:51+0000",
-      "dateStarted": "2024-05-21T13:37:51+0000",
       "results": {
         "code": "ERROR",
         "msg": []
-      }
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1716538085688_346514279",
+      "id": "paragraph_1716290266344_470791481",
+      "dateCreated": "2024-05-24T08:08:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:206"
     }
   ],
   "name": "MAC-Lab-SparkRDDs",
-  "id": "2K1C1GSSE",
+  "id": "2JYM51H4D",
   "defaultInterpreterGroup": "spark",
   "version": "0.11.0",
   "noteParams": {},
   "noteForms": {},
   "angularObjects": {},
   "config": {
-    "personalizedMode": "false",
+    "isZeppelinNotebookCronEnable": false,
     "looknfeel": "default",
-    "isZeppelinNotebookCronEnable": false
+    "personalizedMode": "false"
   },
-  "info": {
-    "isRunning": false
-  },
+  "info": {},
   "path": "/MAC-Lab-SparkRDDs"
 }
